@@ -1,0 +1,256 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="school_dbModelStoreContainer" CdmEntityContainer="Entities">
+    <EntitySetMapping Name="classes">
+      <EntityTypeMapping TypeName="school_dbModel.classes">
+        <MappingFragment StoreEntitySet="classes">
+          <ScalarProperty Name="class_id" ColumnName="class_id" />
+          <ScalarProperty Name="class_name" ColumnName="class_name" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="day">
+      <EntityTypeMapping TypeName="school_dbModel.day">
+        <MappingFragment StoreEntitySet="day">
+          <ScalarProperty Name="day_id" ColumnName="day_id" />
+          <ScalarProperty Name="day_name" ColumnName="day_name" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="exam">
+      <EntityTypeMapping TypeName="school_dbModel.exam">
+        <MappingFragment StoreEntitySet="exam">
+          <ScalarProperty Name="exam_id" ColumnName="exam_id" />
+          <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+          <ScalarProperty Name="exam_name" ColumnName="exam_name" />
+          <ScalarProperty Name="max" ColumnName="max" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="weight" ColumnName="weight" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gender">
+      <EntityTypeMapping TypeName="school_dbModel.gender">
+        <MappingFragment StoreEntitySet="gender">
+          <ScalarProperty Name="gender_id" ColumnName="gender_id" />
+          <ScalarProperty Name="gender_name" ColumnName="gender_name" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="in_out_box">
+      <EntityTypeMapping TypeName="school_dbModel.in_out_box">
+        <MappingFragment StoreEntitySet="in_out_box">
+          <ScalarProperty Name="in_out_box_id" ColumnName="in_out_box_id" />
+          <ScalarProperty Name="from_user_id" ColumnName="from_user_id" />
+          <ScalarProperty Name="to_user_id" ColumnName="to_user_id" />
+          <ScalarProperty Name="message_id" ColumnName="message_id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="interactive">
+      <EntityTypeMapping TypeName="school_dbModel.interactive">
+        <MappingFragment StoreEntitySet="interactive">
+          <ScalarProperty Name="interactive_id" ColumnName="interactive_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="news_id" ColumnName="news_id" />
+          <ScalarProperty Name="interactive_type_id" ColumnName="interactive_type_id" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="interactive_type">
+      <EntityTypeMapping TypeName="school_dbModel.interactive_type">
+        <MappingFragment StoreEntitySet="interactive_type">
+          <ScalarProperty Name="interactive_type_id" ColumnName="interactive_type_id" />
+          <ScalarProperty Name="interactive_type_name" ColumnName="interactive_type_name" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="message">
+      <EntityTypeMapping TypeName="school_dbModel.message">
+        <MappingFragment StoreEntitySet="message">
+          <ScalarProperty Name="message_id" ColumnName="message_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="message_media">
+      <EntityTypeMapping TypeName="school_dbModel.message_media">
+        <MappingFragment StoreEntitySet="message_media">
+          <ScalarProperty Name="message_media_id" ColumnName="message_media_id" />
+          <ScalarProperty Name="message_id" ColumnName="message_id" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="news">
+      <EntityTypeMapping TypeName="school_dbModel.news">
+        <MappingFragment StoreEntitySet="news">
+          <ScalarProperty Name="news_id" ColumnName="news_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="content" ColumnName="content" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="news_media">
+      <EntityTypeMapping TypeName="school_dbModel.news_media">
+        <MappingFragment StoreEntitySet="news_media">
+          <ScalarProperty Name="news_media_id" ColumnName="news_media_id" />
+          <ScalarProperty Name="news_id" ColumnName="news_id" />
+          <ScalarProperty Name="path" ColumnName="path" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notification">
+      <EntityTypeMapping TypeName="school_dbModel.notification">
+        <MappingFragment StoreEntitySet="notification">
+          <ScalarProperty Name="notification_id" ColumnName="notification_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="notification_type_id" ColumnName="notification_type_id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="headline" ColumnName="headline" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="pk" ColumnName="pk" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="notification_type">
+      <EntityTypeMapping TypeName="school_dbModel.notification_type">
+        <MappingFragment StoreEntitySet="notification_type">
+          <ScalarProperty Name="notification_type_id" ColumnName="notification_type_id" />
+          <ScalarProperty Name="notification_type_name" ColumnName="notification_type_name" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="permission">
+      <EntityTypeMapping TypeName="school_dbModel.permission">
+        <MappingFragment StoreEntitySet="permission">
+          <ScalarProperty Name="permission_id" ColumnName="permission_id" />
+          <ScalarProperty Name="permission_name" ColumnName="permission_name" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="section">
+      <EntityTypeMapping TypeName="school_dbModel.section">
+        <MappingFragment StoreEntitySet="section">
+          <ScalarProperty Name="section_id" ColumnName="section_id" />
+          <ScalarProperty Name="section_name" ColumnName="section_name" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="session">
+      <EntityTypeMapping TypeName="school_dbModel.session">
+        <MappingFragment StoreEntitySet="session">
+          <ScalarProperty Name="session_id" ColumnName="session_id" />
+          <ScalarProperty Name="session_name" ColumnName="session_name" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="student_exam">
+      <EntityTypeMapping TypeName="school_dbModel.student_exam">
+        <MappingFragment StoreEntitySet="student_exam">
+          <ScalarProperty Name="student_exam_id" ColumnName="student_exam_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="exam_id" ColumnName="exam_id" />
+          <ScalarProperty Name="mark" ColumnName="mark" />
+          <ScalarProperty Name="absent" ColumnName="absent" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="subject">
+      <EntityTypeMapping TypeName="school_dbModel.subject">
+        <MappingFragment StoreEntitySet="subject">
+          <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+          <ScalarProperty Name="class_id" ColumnName="class_id" />
+          <ScalarProperty Name="subject_name" ColumnName="subject_name" />
+          <ScalarProperty Name="description" ColumnName="description" />
+          <ScalarProperty Name="max" ColumnName="max" />
+          <ScalarProperty Name="pass" ColumnName="pass" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="time_schedule">
+      <EntityTypeMapping TypeName="school_dbModel.time_schedule">
+        <MappingFragment StoreEntitySet="time_schedule">
+          <ScalarProperty Name="time_schedule_id" ColumnName="time_schedule_id" />
+          <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+          <ScalarProperty Name="day_id" ColumnName="day_id" />
+          <ScalarProperty Name="session_id" ColumnName="session_id" />
+          <ScalarProperty Name="section_id" ColumnName="section_id" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user">
+      <EntityTypeMapping TypeName="school_dbModel.user">
+        <MappingFragment StoreEntitySet="user">
+          <ScalarProperty Name="joining_date" ColumnName="joining_date" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="user_type_id" ColumnName="user_type_id" />
+          <ScalarProperty Name="father_id" ColumnName="father_id" />
+          <ScalarProperty Name="mother_id" ColumnName="mother_id" />
+          <ScalarProperty Name="gender_id" ColumnName="gender_id" />
+          <ScalarProperty Name="user_name" ColumnName="user_name" />
+          <ScalarProperty Name="password" ColumnName="password" />
+          <ScalarProperty Name="first_name" ColumnName="first_name" />
+          <ScalarProperty Name="last_name" ColumnName="last_name" />
+          <ScalarProperty Name="date_of_birth" ColumnName="date_of_birth" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="phone" ColumnName="phone" />
+          <ScalarProperty Name="profile_image" ColumnName="profile_image" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_permission">
+      <EntityTypeMapping TypeName="school_dbModel.user_permission">
+        <MappingFragment StoreEntitySet="user_permission">
+          <ScalarProperty Name="user_permission_id" ColumnName="user_permission_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="permission_id" ColumnName="permission_id" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_subject">
+      <EntityTypeMapping TypeName="school_dbModel.user_subject">
+        <MappingFragment StoreEntitySet="user_subject">
+          <ScalarProperty Name="user_subject_id" ColumnName="user_subject_id" />
+          <ScalarProperty Name="user_id" ColumnName="user_id" />
+          <ScalarProperty Name="subject_id" ColumnName="subject_id" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="user_type">
+      <EntityTypeMapping TypeName="school_dbModel.user_type">
+        <MappingFragment StoreEntitySet="user_type">
+          <ScalarProperty Name="user_type_id" ColumnName="user_type_id" />
+          <ScalarProperty Name="user_type_name" ColumnName="user_type_name" />
+          <ScalarProperty Name="is_delete" ColumnName="is_delete" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

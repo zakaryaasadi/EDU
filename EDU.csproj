@@ -1,0 +1,474 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{95421416-E4ED-4DA8-9D69-8A030B8EB93E}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EDU</RootNamespace>
+    <AssemblyName>EDU</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort>44330</IISExpressSSLPort>
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.7\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.7\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.7\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.7\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.7\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Utilies\Mainfest.cs" />
+    <Compile Include="Controllers\teacherController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CLASS.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\DAY.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EXAM.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\GENDER.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\INTERACTIVE.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\INTERACTIVE_TYPE.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\IN_OUT_BOX.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MESSAGE.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MESSAGE_MEDIA.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelDataAccess.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDataAccess.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelDataAccess.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModelDataAccess.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDataAccess.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NEWS.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NEWS_MEDIA.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NOTIFICATION.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\NOTIFICATION_TYPE.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\PERMISSION.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SECTION.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SESSION.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\STUDENT_EXAM.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\SUBJECT.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagrams.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\TIME_SCHEDULE.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USER.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USER_PERMISSION.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USER_SUBJECT.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\USER_TYPE.cs">
+      <DependentUpon>ModelDataAccess.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModels\ClassModel.cs" />
+    <Compile Include="ViewModels\GenderModel.cs" />
+    <Compile Include="ViewModels\SubjectModel.cs" />
+    <Compile Include="ViewModels\UserModel.cs" />
+    <Compile Include="ViewModels\UserType.cs" />
+    <Compile Include="ViewModels\UserTypeModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilies\ValidateAjaxAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\css\create.css" />
+    <Content Include="assets\css\teacher_details.css" />
+    <Content Include="assets\js\teacher\edit.js" />
+    <Content Include="assets\js\teacher\create.js" />
+    <Content Include="assets\js\teacher\index.js" />
+    <Content Include="Core\assets\css\default.css" />
+    <Content Include="Core\assets\images\flags\bl.svg" />
+    <Content Include="Core\assets\images\flags\es.svg" />
+    <Content Include="Core\assets\images\flags\jp.svg" />
+    <Content Include="Core\assets\images\flags\Programs\httrack_x64-3.49.2.exe" />
+    <Content Include="Core\assets\images\flags\Programs\MPC-HC.1.7.13.x64.exe" />
+    <Content Include="Core\assets\images\flags\Programs\npp.7.8.2.Installer.x64.exe" />
+    <Content Include="Core\assets\images\flags\Programs\pw11-free.exe" />
+    <Content Include="Core\assets\images\flags\Programs\pycharm-professional-2019.3.1.exe" />
+    <Content Include="Core\assets\images\flags\Programs\python-3.8.0-amd64.exe" />
+    <Content Include="Core\assets\images\flags\Programs\python-3.8.1.exe" />
+    <Content Include="Core\assets\images\flags\Programs\torbrowser-install-win64-9.0.4_en-US.exe" />
+    <Content Include="Core\assets\images\flags\Programs\utweb_installer.exe" />
+    <Content Include="Core\assets\images\flags\us.svg" />
+    <Content Include="Core\assets\images\gallery\1.jpg" />
+    <Content Include="Core\assets\images\gallery\10.jpg" />
+    <Content Include="Core\assets\images\gallery\11.jpg" />
+    <Content Include="Core\assets\images\gallery\12.jpg" />
+    <Content Include="Core\assets\images\gallery\2.jpg" />
+    <Content Include="Core\assets\images\gallery\3.jpg" />
+    <Content Include="Core\assets\images\gallery\4.jpg" />
+    <Content Include="Core\assets\images\gallery\5.jpg" />
+    <Content Include="Core\assets\images\gallery\6.jpg" />
+    <Content Include="Core\assets\images\gallery\7.jpg" />
+    <Content Include="Core\assets\images\gallery\8.jpg" />
+    <Content Include="Core\assets\images\gallery\9.jpg" />
+    <Content Include="Core\assets\images\sm\avatar1.jpg" />
+    <Content Include="Core\assets\images\sm\avatar2.jpg" />
+    <Content Include="Core\assets\images\sm\avatar3.jpg" />
+    <Content Include="Core\assets\images\sm\avatar4.jpg" />
+    <Content Include="Core\assets\images\sm\avatar5.jpg" />
+    <Content Include="Core\assets\images\sm\avatar6.jpg" />
+    <Content Include="Core\assets\images\themes\dark.png" />
+    <Content Include="Core\assets\images\themes\default.png" />
+    <Content Include="Core\assets\images\themes\rtl.png" />
+    <Content Include="Core\assets\images\xs\avatar1.jpg" />
+    <Content Include="Core\assets\images\xs\avatar10.jpg" />
+    <Content Include="Core\assets\images\xs\avatar2.jpg" />
+    <Content Include="Core\assets\images\xs\avatar3.jpg" />
+    <Content Include="Core\assets\images\xs\avatar4.jpg" />
+    <Content Include="Core\assets\images\xs\avatar5.jpg" />
+    <Content Include="Core\assets\images\xs\avatar6.jpg" />
+    <Content Include="Core\assets\images\xs\avatar7.jpg" />
+    <Content Include="Core\assets\images\xs\avatar8.jpg" />
+    <Content Include="Core\assets\images\xs\avatar9.jpg" />
+    <Content Include="Core\assets\js\chart\knobjs.js" />
+    <Content Include="Core\assets\js\form\dropify.js" />
+    <Content Include="Core\assets\js\map\map.js" />
+    <Content Include="Core\assets\js\page\calendar.js" />
+    <Content Include="Core\assets\js\page\dialogs.js" />
+    <Content Include="Core\assets\js\page\index.js" />
+    <Content Include="Core\assets\js\page\sortable-nestable.js" />
+    <Content Include="Core\assets\js\page\summernote.js" />
+    <Content Include="Core\assets\js\social.js" />
+    <Content Include="Core\assets\js\table\datatable.js" />
+    <Content Include="Core\content\bundles\apexcharts.bundle.js" />
+    <Content Include="Core\content\bundles\counterup.bundle.js" />
+    <Content Include="Core\content\bundles\dataTables.bundle.js" />
+    <Content Include="Core\content\bundles\flot.bundle.js" />
+    <Content Include="Core\content\bundles\fullcalendar.bundle.js" />
+    <Content Include="Core\content\bundles\jvectormap1.bundle.js" />
+    <Content Include="Core\content\bundles\knobjs.bundle.js" />
+    <Content Include="Core\content\bundles\lib.vendor.bundle.js" />
+    <Content Include="Core\content\bundles\nestable.bundle.js" />
+    <Content Include="Core\content\bundles\summernote.bundle.js" />
+    <Content Include="Core\content\bundles\sweetalert.bundle.js" />
+    <Content Include="Core\content\css\style.min.css" />
+    <Content Include="Core\content\images\gallery\1.jpg" />
+    <Content Include="Core\content\images\gallery\10.jpg" />
+    <Content Include="Core\content\images\gallery\11.jpg" />
+    <Content Include="Core\content\images\gallery\12.jpg" />
+    <Content Include="Core\content\images\gallery\2.jpg" />
+    <Content Include="Core\content\images\gallery\3.jpg" />
+    <Content Include="Core\content\images\gallery\4.jpg" />
+    <Content Include="Core\content\images\gallery\5.jpg" />
+    <Content Include="Core\content\images\gallery\6.jpg" />
+    <Content Include="Core\content\images\gallery\7.jpg" />
+    <Content Include="Core\content\images\gallery\8.jpg" />
+    <Content Include="Core\content\images\gallery\9.jpg" />
+    <Content Include="Core\content\images\sm\avatar1.jpg" />
+    <Content Include="Core\content\images\sm\avatar2.jpg" />
+    <Content Include="Core\content\images\sm\avatar3.jpg" />
+    <Content Include="Core\content\images\sm\avatar4.jpg" />
+    <Content Include="Core\content\images\sm\avatar5.jpg" />
+    <Content Include="Core\content\images\sm\avatar6.jpg" />
+    <Content Include="Core\content\images\teacher.jpg" />
+    <Content Include="Core\content\images\themes\dark.png" />
+    <Content Include="Core\content\images\themes\default.png" />
+    <Content Include="Core\content\images\themes\rtl.png" />
+    <Content Include="Core\content\images\xs\avatar1.jpg" />
+    <Content Include="Core\content\images\xs\avatar10.jpg" />
+    <Content Include="Core\content\images\xs\avatar2.jpg" />
+    <Content Include="Core\content\images\xs\avatar3.jpg" />
+    <Content Include="Core\content\images\xs\avatar4.jpg" />
+    <Content Include="Core\content\images\xs\avatar5.jpg" />
+    <Content Include="Core\content\images\xs\avatar6.jpg" />
+    <Content Include="Core\content\images\xs\avatar7.jpg" />
+    <Content Include="Core\content\images\xs\avatar8.jpg" />
+    <Content Include="Core\content\images\xs\avatar9.jpg" />
+    <Content Include="Core\content\js\core.js" />
+    <Content Include="Core\content\plugins\bootstrap-datepicker\css\bootstrap-datepicker3.min.css" />
+    <Content Include="Core\content\plugins\bootstrap-datepicker\js\bootstrap-datepicker.min.js" />
+    <Content Include="Core\content\plugins\bootstrap\css\bootstrap.min.css" />
+    <Content Include="Core\content\plugins\charts-c3\c3.min.css" />
+    <Content Include="Core\content\plugins\datatable\dataTables.bootstrap4.min.css" />
+    <Content Include="Core\content\plugins\datatable\fixedeader\dataTables.fixedcolumns.bootstrap4.min.css" />
+    <Content Include="Core\content\plugins\datatable\fixedeader\dataTables.fixedheader.bootstrap4.min.css" />
+    <Content Include="Core\content\plugins\dropify\css\dropify.min.css" />
+    <Content Include="Core\content\plugins\dropify\js\dropify.min.js" />
+    <Content Include="Core\content\plugins\flot-charts\flot.selection.js" />
+    <Content Include="Core\content\plugins\flot-charts\flot.time.js" />
+    <Content Include="Core\content\plugins\fullcalendar\fullcalendar.min.css" />
+    <Content Include="Core\content\plugins\jvectormap\jvectormap-2.0.3.css" />
+    <Content Include="Core\content\plugins\nestable\jquery-nestable.css" />
+    <Content Include="Core\content\plugins\summernote\dist\summernote.css" />
+    <Content Include="Core\content\plugins\sweetalert\sweetalert.css" />
+    <Content Include="Core\content\plugins\sweetalert\sweetalert.min.js" />
+    <Content Include="error\404.html" />
+    <Content Include="error\500.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Core\assets\images\flags\Programs\mysql-connector-net-8.0.19.msi" />
+    <Content Include="Core\assets\images\flags\Programs\mysql-for-visualstudio-1.2.9.msi" />
+    <Content Include="Core\assets\images\flags\Programs\mysql-installer-community-8.0.19.0.msi" />
+    <Content Include="Core\assets\images\flags\Programs\node-v12.14.1-x64.msi" />
+    <Content Include="Core\content\fonts\feather\feather-webfont.woff" />
+    <Content Include="Core\content\fonts\fontawesome-webfont.eot" />
+    <Content Include="Core\content\fonts\fontawesome-webfont.woff" />
+    <Content Include="Core\content\fonts\fontawesome-webfont.woff2" />
+    <Content Include="Core\content\fonts\simple-Line-Icons.woff" />
+    <Content Include="Core\content\plugins\summernote\dist\font\summernoted41d.eot" />
+    <Content Include="Core\content\plugins\summernote\dist\font\summernotef534.eot" />
+    <Content Include="Core\content\plugins\summernote\dist\font\summernotef534.ttf" />
+    <Content Include="Core\content\plugins\summernote\dist\font\summernotef534.woff" />
+    <Content Include="Models\ModelDataAccess.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDataAccess.edmx</DependentUpon>
+      <LastGenOutput>ModelDataAccess.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ModelDataAccess.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDataAccess.edmx</DependentUpon>
+      <LastGenOutput>ModelDataAccess.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Error\404.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Core\content\fonts\dropify.woff" />
+    <Content Include="Core\content\fonts\dropify.ttf" />
+    <Content Include="Core\content\fonts\dropify.eot" />
+    <EntityDeploy Include="Models\ModelDataAccess.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelDataAccess.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ModelDataAccess.edmx.diagram">
+      <DependentUpon>ModelDataAccess.edmx</DependentUpon>
+    </Content>
+    <None Include="packages.config" />
+    <Content Include="Views\Teacher\Index.cshtml" />
+    <Content Include="Views\Teacher\Detail.cshtml" />
+    <Content Include="Views\Teacher\Edit.cshtml" />
+    <Content Include="Views\Teacher\Create.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>61654</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>https://localhost:44330/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

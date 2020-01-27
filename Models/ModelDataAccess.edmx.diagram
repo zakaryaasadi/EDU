@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5b769cf177ee44fca465bf7818f361f4" Name="Diagram1" ZoomLevel="55">
+        <EntityTypeShape EntityType="school_dbModel.CLASS" Width="1.5" PointX="1.5" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.DAY" Width="1.5" PointX="1.75" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.EXAM" Width="1.5" PointX="3" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.GENDER" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.IN_OUT_BOX" Width="1.5" PointX="5.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.INTERACTIVE" Width="1.5" PointX="8.25" PointY="10" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.INTERACTIVE_TYPE" Width="1.5" PointX="6" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.MESSAGE" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.MESSAGE_MEDIA" Width="1.5" PointX="5.25" PointY="28.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.NEWS" Width="1.5" PointX="6" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.NEWS_MEDIA" Width="1.5" PointX="8.25" PointY="20.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.NOTIFICATION" Width="1.5" PointX="5.25" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.NOTIFICATION_TYPE" Width="1.5" PointX="3" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.PERMISSION" Width="1.5" PointX="6" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.SECTION" Width="1.5" PointX="1.75" PointY="29.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.SESSION" Width="1.5" PointX="1.75" PointY="32.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.STUDENT_EXAM" Width="1.5" PointX="5.25" PointY="14" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.SUBJECT" Width="1.5" PointX="0.75" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.TIME_SCHEDULE" Width="1.5" PointX="4" PointY="24" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.USER" Width="1.5" PointX="3" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.USER_PERMISSION" Width="1.5" PointX="8.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.USER_SUBJECT" Width="1.5" PointX="8.25" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="school_dbModel.USER_TYPE" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <AssociationConnector Association="school_dbModel.FK_subject_classes" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_time_schedule_day" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_exam_subject" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_student_exam_exam" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_user_gender" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_in_out_box_message" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_in_out_box_user" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_in_out_box_user1" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_interactive_interactive_type" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_interactive_news" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_interactive_user" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_message_media_message" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_news_media_news" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_notification_notification_type" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_notification_user" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_user_permission_permission" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_time_schedule_section" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_time_schedule_session" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_student_exam_user" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_time_schedule_subject" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_user_subject_subject" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_user_permission_user" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_user_subject_user" ManuallyRouted="false" />
+        <AssociationConnector Association="school_dbModel.FK_user_user_type" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

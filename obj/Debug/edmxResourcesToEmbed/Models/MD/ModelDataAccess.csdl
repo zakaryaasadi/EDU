@@ -1,0 +1,734 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="school_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="classes">
+    <Key>
+      <PropertyRef Name="class_id" />
+    </Key>
+    <Property Name="class_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="class_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="subject" Relationship="Self.FK_subject_classes" FromRole="classes" ToRole="subject" />
+  </EntityType>
+  <EntityType Name="day">
+    <Key>
+      <PropertyRef Name="day_id" />
+    </Key>
+    <Property Name="day_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="day_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="time_schedule" Relationship="Self.FK_time_schedule_day" FromRole="day" ToRole="time_schedule" />
+  </EntityType>
+  <EntityType Name="exam">
+    <Key>
+      <PropertyRef Name="exam_id" />
+    </Key>
+    <Property Name="exam_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="subject_id" Type="Int32" Nullable="false" />
+    <Property Name="exam_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="max" Type="Int32" Nullable="false" />
+    <Property Name="pass" Type="Int32" Nullable="false" />
+    <Property Name="weight" Type="Int32" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="subject" Relationship="Self.FK_exam_subject" FromRole="exam" ToRole="subject" />
+    <NavigationProperty Name="student_exam" Relationship="Self.FK_student_exam_exam" FromRole="exam" ToRole="student_exam" />
+  </EntityType>
+  <EntityType Name="gender">
+    <Key>
+      <PropertyRef Name="gender_id" />
+    </Key>
+    <Property Name="gender_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gender_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="user" Relationship="Self.FK_user_gender" FromRole="gender" ToRole="user" />
+  </EntityType>
+  <EntityType Name="in_out_box">
+    <Key>
+      <PropertyRef Name="in_out_box_id" />
+    </Key>
+    <Property Name="in_out_box_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="from_user_id" Type="Int32" Nullable="false" />
+    <Property Name="to_user_id" Type="Int32" Nullable="false" />
+    <Property Name="message_id" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="message" Relationship="Self.FK_in_out_box_message" FromRole="in_out_box" ToRole="message" />
+    <NavigationProperty Name="user" Relationship="Self.FK_in_out_box_user" FromRole="in_out_box" ToRole="user" />
+    <NavigationProperty Name="user1" Relationship="Self.FK_in_out_box_user1" FromRole="in_out_box" ToRole="user" />
+  </EntityType>
+  <EntityType Name="interactive">
+    <Key>
+      <PropertyRef Name="interactive_id" />
+    </Key>
+    <Property Name="interactive_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="news_id" Type="Int32" Nullable="false" />
+    <Property Name="interactive_type_id" Type="Int32" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="interactive_type" Relationship="Self.FK_interactive_interactive_type" FromRole="interactive" ToRole="interactive_type" />
+    <NavigationProperty Name="news" Relationship="Self.FK_interactive_news" FromRole="interactive" ToRole="news" />
+    <NavigationProperty Name="user" Relationship="Self.FK_interactive_user" FromRole="interactive" ToRole="user" />
+  </EntityType>
+  <EntityType Name="interactive_type">
+    <Key>
+      <PropertyRef Name="interactive_type_id" />
+    </Key>
+    <Property Name="interactive_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="interactive_type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="interactive" Relationship="Self.FK_interactive_interactive_type" FromRole="interactive_type" ToRole="interactive" />
+  </EntityType>
+  <EntityType Name="message">
+    <Key>
+      <PropertyRef Name="message_id" />
+    </Key>
+    <Property Name="message_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="in_out_box" Relationship="Self.FK_in_out_box_message" FromRole="message" ToRole="in_out_box" />
+    <NavigationProperty Name="message_media" Relationship="Self.FK_message_media_message" FromRole="message" ToRole="message_media" />
+  </EntityType>
+  <EntityType Name="message_media">
+    <Key>
+      <PropertyRef Name="message_media_id" />
+    </Key>
+    <Property Name="message_media_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="message_id" Type="Int32" Nullable="false" />
+    <Property Name="path" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="message" Relationship="Self.FK_message_media_message" FromRole="message_media" ToRole="message" />
+  </EntityType>
+  <EntityType Name="news">
+    <Key>
+      <PropertyRef Name="news_id" />
+    </Key>
+    <Property Name="news_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="interactive" Relationship="Self.FK_interactive_news" FromRole="news" ToRole="interactive" />
+    <NavigationProperty Name="news_media" Relationship="Self.FK_news_media_news" FromRole="news" ToRole="news_media" />
+  </EntityType>
+  <EntityType Name="news_media">
+    <Key>
+      <PropertyRef Name="news_media_id" />
+    </Key>
+    <Property Name="news_media_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="news_id" Type="Int32" Nullable="false" />
+    <Property Name="path" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="news" Relationship="Self.FK_news_media_news" FromRole="news_media" ToRole="news" />
+  </EntityType>
+  <EntityType Name="notification">
+    <Key>
+      <PropertyRef Name="notification_id" />
+    </Key>
+    <Property Name="notification_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="notification_type_id" Type="Int32" Nullable="false" />
+    <Property Name="title" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="headline" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="pk" Type="Int32" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="notification_type" Relationship="Self.FK_notification_notification_type" FromRole="notification" ToRole="notification_type" />
+    <NavigationProperty Name="user" Relationship="Self.FK_notification_user" FromRole="notification" ToRole="user" />
+  </EntityType>
+  <EntityType Name="notification_type">
+    <Key>
+      <PropertyRef Name="notification_type_id" />
+    </Key>
+    <Property Name="notification_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="notification_type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="notification" Relationship="Self.FK_notification_notification_type" FromRole="notification_type" ToRole="notification" />
+  </EntityType>
+  <EntityType Name="permission">
+    <Key>
+      <PropertyRef Name="permission_id" />
+    </Key>
+    <Property Name="permission_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="permission_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="user_permission" Relationship="Self.FK_user_permission_permission" FromRole="permission" ToRole="user_permission" />
+  </EntityType>
+  <EntityType Name="section">
+    <Key>
+      <PropertyRef Name="section_id" />
+    </Key>
+    <Property Name="section_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="section_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="time_schedule" Relationship="Self.FK_time_schedule_section" FromRole="section" ToRole="time_schedule" />
+  </EntityType>
+  <EntityType Name="session">
+    <Key>
+      <PropertyRef Name="session_id" />
+    </Key>
+    <Property Name="session_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="session_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="time_schedule" Relationship="Self.FK_time_schedule_session" FromRole="session" ToRole="time_schedule" />
+  </EntityType>
+  <EntityType Name="student_exam">
+    <Key>
+      <PropertyRef Name="student_exam_id" />
+    </Key>
+    <Property Name="student_exam_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="exam_id" Type="Int32" Nullable="false" />
+    <Property Name="mark" Type="Int32" Nullable="false" />
+    <Property Name="absent" Type="Boolean" Nullable="false" />
+    <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="exam" Relationship="Self.FK_student_exam_exam" FromRole="student_exam" ToRole="exam" />
+    <NavigationProperty Name="user" Relationship="Self.FK_student_exam_user" FromRole="student_exam" ToRole="user" />
+  </EntityType>
+  <EntityType Name="subject">
+    <Key>
+      <PropertyRef Name="subject_id" />
+    </Key>
+    <Property Name="subject_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="class_id" Type="Int32" Nullable="false" />
+    <Property Name="subject_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="max" Type="Int32" Nullable="false" />
+    <Property Name="pass" Type="Int32" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="classes" Relationship="Self.FK_subject_classes" FromRole="subject" ToRole="classes" />
+    <NavigationProperty Name="exam" Relationship="Self.FK_exam_subject" FromRole="subject" ToRole="exam" />
+    <NavigationProperty Name="time_schedule" Relationship="Self.FK_time_schedule_subject" FromRole="subject" ToRole="time_schedule" />
+    <NavigationProperty Name="user_subject" Relationship="Self.FK_user_subject_subject" FromRole="subject" ToRole="user_subject" />
+  </EntityType>
+  <EntityType Name="time_schedule">
+    <Key>
+      <PropertyRef Name="time_schedule_id" />
+    </Key>
+    <Property Name="time_schedule_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="subject_id" Type="Int32" Nullable="false" />
+    <Property Name="day_id" Type="Int32" Nullable="false" />
+    <Property Name="session_id" Type="Int32" Nullable="false" />
+    <Property Name="section_id" Type="Int32" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="day" Relationship="Self.FK_time_schedule_day" FromRole="time_schedule" ToRole="day" />
+    <NavigationProperty Name="section" Relationship="Self.FK_time_schedule_section" FromRole="time_schedule" ToRole="section" />
+    <NavigationProperty Name="session" Relationship="Self.FK_time_schedule_session" FromRole="time_schedule" ToRole="session" />
+    <NavigationProperty Name="subject" Relationship="Self.FK_time_schedule_subject" FromRole="time_schedule" ToRole="subject" />
+  </EntityType>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="user_id" />
+    </Key>
+    <Property Name="user_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_type_id" Type="Int32" Nullable="false" />
+    <Property Name="father_id" Type="Int32" Nullable="false" />
+    <Property Name="mother_id" Type="Int32" Nullable="false" />
+    <Property Name="gender_id" Type="Int32" Nullable="false" />
+    <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="first_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="last_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="date_of_birth" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="address" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="profile_image" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="gender" Relationship="Self.FK_user_gender" FromRole="user" ToRole="gender" />
+    <NavigationProperty Name="in_out_box" Relationship="Self.FK_in_out_box_user" FromRole="user" ToRole="in_out_box" />
+    <NavigationProperty Name="in_out_box1" Relationship="Self.FK_in_out_box_user1" FromRole="user" ToRole="in_out_box" />
+    <NavigationProperty Name="interactive" Relationship="Self.FK_interactive_user" FromRole="user" ToRole="interactive" />
+    <NavigationProperty Name="notification" Relationship="Self.FK_notification_user" FromRole="user" ToRole="notification" />
+    <NavigationProperty Name="student_exam" Relationship="Self.FK_student_exam_user" FromRole="user" ToRole="student_exam" />
+    <NavigationProperty Name="user_permission" Relationship="Self.FK_user_permission_user" FromRole="user" ToRole="user_permission" />
+    <NavigationProperty Name="user_subject" Relationship="Self.FK_user_subject_user" FromRole="user" ToRole="user_subject" />
+    <NavigationProperty Name="user_type" Relationship="Self.FK_user_user_type" FromRole="user" ToRole="user_type" />
+    <Property Name="joining_date" Type="DateTime" Nullable="false" Precision="0" />
+  </EntityType>
+  <EntityType Name="user_permission">
+    <Key>
+      <PropertyRef Name="user_permission_id" />
+    </Key>
+    <Property Name="user_permission_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="permission_id" Type="Int32" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="permission" Relationship="Self.FK_user_permission_permission" FromRole="user_permission" ToRole="permission" />
+    <NavigationProperty Name="user" Relationship="Self.FK_user_permission_user" FromRole="user_permission" ToRole="user" />
+  </EntityType>
+  <EntityType Name="user_subject">
+    <Key>
+      <PropertyRef Name="user_subject_id" />
+    </Key>
+    <Property Name="user_subject_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_id" Type="Int32" Nullable="false" />
+    <Property Name="subject_id" Type="Int32" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="subject" Relationship="Self.FK_user_subject_subject" FromRole="user_subject" ToRole="subject" />
+    <NavigationProperty Name="user" Relationship="Self.FK_user_subject_user" FromRole="user_subject" ToRole="user" />
+  </EntityType>
+  <EntityType Name="user_type">
+    <Key>
+      <PropertyRef Name="user_type_id" />
+    </Key>
+    <Property Name="user_type_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="user_type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="is_delete" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="user" Relationship="Self.FK_user_user_type" FromRole="user_type" ToRole="user" />
+  </EntityType>
+  <Association Name="FK_subject_classes">
+    <End Role="classes" Type="Self.classes" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="subject" Type="Self.subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="classes">
+        <PropertyRef Name="class_id" />
+      </Principal>
+      <Dependent Role="subject">
+        <PropertyRef Name="class_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_time_schedule_day">
+    <End Role="day" Type="Self.day" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="time_schedule" Type="Self.time_schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="day">
+        <PropertyRef Name="day_id" />
+      </Principal>
+      <Dependent Role="time_schedule">
+        <PropertyRef Name="day_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_exam_subject">
+    <End Role="subject" Type="Self.subject" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="exam" Type="Self.exam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subject">
+        <PropertyRef Name="subject_id" />
+      </Principal>
+      <Dependent Role="exam">
+        <PropertyRef Name="subject_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_student_exam_exam">
+    <End Role="exam" Type="Self.exam" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="student_exam" Type="Self.student_exam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="exam">
+        <PropertyRef Name="exam_id" />
+      </Principal>
+      <Dependent Role="student_exam">
+        <PropertyRef Name="exam_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_gender">
+    <End Role="gender" Type="Self.gender" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="user" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gender">
+        <PropertyRef Name="gender_id" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="gender_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_in_out_box_message">
+    <End Role="message" Type="Self.message" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="in_out_box" Type="Self.in_out_box" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="message">
+        <PropertyRef Name="message_id" />
+      </Principal>
+      <Dependent Role="in_out_box">
+        <PropertyRef Name="message_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_in_out_box_user">
+    <End Role="user" Type="Self.user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="in_out_box" Type="Self.in_out_box" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="in_out_box">
+        <PropertyRef Name="from_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_in_out_box_user1">
+    <End Role="user" Type="Self.user" Multiplicity="1" />
+    <End Role="in_out_box" Type="Self.in_out_box" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="in_out_box">
+        <PropertyRef Name="to_user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_interactive_interactive_type">
+    <End Role="interactive_type" Type="Self.interactive_type" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="interactive" Type="Self.interactive" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="interactive_type">
+        <PropertyRef Name="interactive_type_id" />
+      </Principal>
+      <Dependent Role="interactive">
+        <PropertyRef Name="interactive_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_interactive_news">
+    <End Role="news" Type="Self.news" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="interactive" Type="Self.interactive" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="news">
+        <PropertyRef Name="news_id" />
+      </Principal>
+      <Dependent Role="interactive">
+        <PropertyRef Name="news_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_interactive_user">
+    <End Role="user" Type="Self.user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="interactive" Type="Self.interactive" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="interactive">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_message_media_message">
+    <End Role="message" Type="Self.message" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="message_media" Type="Self.message_media" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="message">
+        <PropertyRef Name="message_id" />
+      </Principal>
+      <Dependent Role="message_media">
+        <PropertyRef Name="message_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_news_media_news">
+    <End Role="news" Type="Self.news" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="news_media" Type="Self.news_media" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="news">
+        <PropertyRef Name="news_id" />
+      </Principal>
+      <Dependent Role="news_media">
+        <PropertyRef Name="news_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_notification_notification_type">
+    <End Role="notification_type" Type="Self.notification_type" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="notification" Type="Self.notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="notification_type">
+        <PropertyRef Name="notification_type_id" />
+      </Principal>
+      <Dependent Role="notification">
+        <PropertyRef Name="notification_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_notification_user">
+    <End Role="user" Type="Self.user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="notification" Type="Self.notification" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="notification">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_permission_permission">
+    <End Role="permission" Type="Self.permission" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="user_permission" Type="Self.user_permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="permission">
+        <PropertyRef Name="permission_id" />
+      </Principal>
+      <Dependent Role="user_permission">
+        <PropertyRef Name="permission_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_time_schedule_section">
+    <End Role="section" Type="Self.section" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="time_schedule" Type="Self.time_schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="section">
+        <PropertyRef Name="section_id" />
+      </Principal>
+      <Dependent Role="time_schedule">
+        <PropertyRef Name="section_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_time_schedule_session">
+    <End Role="session" Type="Self.session" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="time_schedule" Type="Self.time_schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="session">
+        <PropertyRef Name="session_id" />
+      </Principal>
+      <Dependent Role="time_schedule">
+        <PropertyRef Name="session_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_student_exam_user">
+    <End Role="user" Type="Self.user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="student_exam" Type="Self.student_exam" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="student_exam">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_time_schedule_subject">
+    <End Role="subject" Type="Self.subject" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="time_schedule" Type="Self.time_schedule" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subject">
+        <PropertyRef Name="subject_id" />
+      </Principal>
+      <Dependent Role="time_schedule">
+        <PropertyRef Name="subject_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_subject_subject">
+    <End Role="subject" Type="Self.subject" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="user_subject" Type="Self.user_subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="subject">
+        <PropertyRef Name="subject_id" />
+      </Principal>
+      <Dependent Role="user_subject">
+        <PropertyRef Name="subject_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_permission_user">
+    <End Role="user" Type="Self.user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="user_permission" Type="Self.user_permission" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="user_permission">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_subject_user">
+    <End Role="user" Type="Self.user" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="user_subject" Type="Self.user_subject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user">
+        <PropertyRef Name="user_id" />
+      </Principal>
+      <Dependent Role="user_subject">
+        <PropertyRef Name="user_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_user_user_type">
+    <End Role="user_type" Type="Self.user_type" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="user" Type="Self.user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="user_type">
+        <PropertyRef Name="user_type_id" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="user_type_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="classes" EntityType="Self.classes" />
+    <EntitySet Name="day" EntityType="Self.day" />
+    <EntitySet Name="exam" EntityType="Self.exam" />
+    <EntitySet Name="gender" EntityType="Self.gender" />
+    <EntitySet Name="in_out_box" EntityType="Self.in_out_box" />
+    <EntitySet Name="interactive" EntityType="Self.interactive" />
+    <EntitySet Name="interactive_type" EntityType="Self.interactive_type" />
+    <EntitySet Name="message" EntityType="Self.message" />
+    <EntitySet Name="message_media" EntityType="Self.message_media" />
+    <EntitySet Name="news" EntityType="Self.news" />
+    <EntitySet Name="news_media" EntityType="Self.news_media" />
+    <EntitySet Name="notification" EntityType="Self.notification" />
+    <EntitySet Name="notification_type" EntityType="Self.notification_type" />
+    <EntitySet Name="permission" EntityType="Self.permission" />
+    <EntitySet Name="section" EntityType="Self.section" />
+    <EntitySet Name="session" EntityType="Self.session" />
+    <EntitySet Name="student_exam" EntityType="Self.student_exam" />
+    <EntitySet Name="subject" EntityType="Self.subject" />
+    <EntitySet Name="time_schedule" EntityType="Self.time_schedule" />
+    <EntitySet Name="user" EntityType="Self.user" />
+    <EntitySet Name="user_permission" EntityType="Self.user_permission" />
+    <EntitySet Name="user_subject" EntityType="Self.user_subject" />
+    <EntitySet Name="user_type" EntityType="Self.user_type" />
+    <AssociationSet Name="FK_subject_classes" Association="Self.FK_subject_classes">
+      <End Role="classes" EntitySet="classes" />
+      <End Role="subject" EntitySet="subject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_time_schedule_day" Association="Self.FK_time_schedule_day">
+      <End Role="day" EntitySet="day" />
+      <End Role="time_schedule" EntitySet="time_schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_exam_subject" Association="Self.FK_exam_subject">
+      <End Role="subject" EntitySet="subject" />
+      <End Role="exam" EntitySet="exam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_student_exam_exam" Association="Self.FK_student_exam_exam">
+      <End Role="exam" EntitySet="exam" />
+      <End Role="student_exam" EntitySet="student_exam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_gender" Association="Self.FK_user_gender">
+      <End Role="gender" EntitySet="gender" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+    <AssociationSet Name="FK_in_out_box_message" Association="Self.FK_in_out_box_message">
+      <End Role="message" EntitySet="message" />
+      <End Role="in_out_box" EntitySet="in_out_box" />
+    </AssociationSet>
+    <AssociationSet Name="FK_in_out_box_user" Association="Self.FK_in_out_box_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="in_out_box" EntitySet="in_out_box" />
+    </AssociationSet>
+    <AssociationSet Name="FK_in_out_box_user1" Association="Self.FK_in_out_box_user1">
+      <End Role="user" EntitySet="user" />
+      <End Role="in_out_box" EntitySet="in_out_box" />
+    </AssociationSet>
+    <AssociationSet Name="FK_interactive_interactive_type" Association="Self.FK_interactive_interactive_type">
+      <End Role="interactive_type" EntitySet="interactive_type" />
+      <End Role="interactive" EntitySet="interactive" />
+    </AssociationSet>
+    <AssociationSet Name="FK_interactive_news" Association="Self.FK_interactive_news">
+      <End Role="news" EntitySet="news" />
+      <End Role="interactive" EntitySet="interactive" />
+    </AssociationSet>
+    <AssociationSet Name="FK_interactive_user" Association="Self.FK_interactive_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="interactive" EntitySet="interactive" />
+    </AssociationSet>
+    <AssociationSet Name="FK_message_media_message" Association="Self.FK_message_media_message">
+      <End Role="message" EntitySet="message" />
+      <End Role="message_media" EntitySet="message_media" />
+    </AssociationSet>
+    <AssociationSet Name="FK_news_media_news" Association="Self.FK_news_media_news">
+      <End Role="news" EntitySet="news" />
+      <End Role="news_media" EntitySet="news_media" />
+    </AssociationSet>
+    <AssociationSet Name="FK_notification_notification_type" Association="Self.FK_notification_notification_type">
+      <End Role="notification_type" EntitySet="notification_type" />
+      <End Role="notification" EntitySet="notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_notification_user" Association="Self.FK_notification_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="notification" EntitySet="notification" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_permission_permission" Association="Self.FK_user_permission_permission">
+      <End Role="permission" EntitySet="permission" />
+      <End Role="user_permission" EntitySet="user_permission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_time_schedule_section" Association="Self.FK_time_schedule_section">
+      <End Role="section" EntitySet="section" />
+      <End Role="time_schedule" EntitySet="time_schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_time_schedule_session" Association="Self.FK_time_schedule_session">
+      <End Role="session" EntitySet="session" />
+      <End Role="time_schedule" EntitySet="time_schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_student_exam_user" Association="Self.FK_student_exam_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="student_exam" EntitySet="student_exam" />
+    </AssociationSet>
+    <AssociationSet Name="FK_time_schedule_subject" Association="Self.FK_time_schedule_subject">
+      <End Role="subject" EntitySet="subject" />
+      <End Role="time_schedule" EntitySet="time_schedule" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_subject_subject" Association="Self.FK_user_subject_subject">
+      <End Role="subject" EntitySet="subject" />
+      <End Role="user_subject" EntitySet="user_subject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_permission_user" Association="Self.FK_user_permission_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="user_permission" EntitySet="user_permission" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_subject_user" Association="Self.FK_user_subject_user">
+      <End Role="user" EntitySet="user" />
+      <End Role="user_subject" EntitySet="user_subject" />
+    </AssociationSet>
+    <AssociationSet Name="FK_user_user_type" Association="Self.FK_user_user_type">
+      <End Role="user_type" EntitySet="user_type" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

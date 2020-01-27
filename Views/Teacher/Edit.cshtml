@@ -1,0 +1,156 @@
+﻿@section Scripts
+{
+    <!-- Start Main project js, jQuery, Bootstrap -->
+    <script src="~/Core/content/bundles/lib.vendor.bundle.js"></script>
+    <script src="~/Core/content/plugins/dropify/js/dropify.min.js"></script>
+    <script src="~/Core/assets/js/form/dropify.js"></script>
+    <script src="~/Core/content/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+
+    <!-- Start project main js  and page js -->
+    <script src="~/Core/content/js/core.js"></script>
+
+    <script>
+        values = @Html.Raw(Json.Encode(ViewBag.data));
+        genders = @Html.Raw(Json.Encode(ViewBag.Gender));
+        classes = @Html.Raw(Json.Encode(ViewBag.Classes));
+
+
+    </script>
+
+    <script src="~/assets/js/teacher/edit.js"></script>
+
+}
+@section Styles
+{
+    <!-- Bootstrap core and vandor -->
+    <link rel="stylesheet" href="~/Core/content/plugins/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/core/content/plugins/dropify/css/dropify.min.css">
+    <link rel="stylesheet" href="~/Core/content/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+
+    <!-- core css -->
+    <link href="~/Core/content/css/style.min.css" rel="stylesheet" />
+}
+
+<!-- Start Page title -->
+<div class="section-body">
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center ">
+            <div class="header-action">
+                <h1 class="page-title">@ViewBag.Title</h1>
+                <ol class="breadcrumb page-breadcrumb">
+                    <li class="breadcrumb-item"><a href="@Url.Action("Index","Home")">@ViewBag.Logo</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Basic Information</h3>
+        </div>
+        <div class="card-body">
+            <form id="form" action="@Url.Action("edit")" v-on:submit="checkForm" method="post">
+                <div class="row clearfix">
+
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label>First Name</label>
+                            <input type="text" v-model="fields.first_name" class="form-control" placeholder="First name" required />
+                            <span class="text-danger">{{e.first_name}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label>Last Name</label>
+                            <input v-model="fields.last_name" type="text" class="form-control" placeholder="Last name" required>
+                            <span class="text-danger">{{e.last_name}}</span>
+                        </div>
+                    </div>
+                   
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label>Date of Birth</label>
+                            <input id="birth" :value="fields.date_of_birth" type="text" data-provide="datepicker" data-date-autoclose="true" class="form-control" placeholder="Date of Birth" required>
+                            <span class="text-danger">{{e.date_of_birth}}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-sm-12">
+                        <label>Gender</label>
+                        <select v-model="fields.gender_id" class="form-control show-tick">
+                            <option v-for="option in list" v-bind:value="option.gender_id">
+                                {{ option.gender_name }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label>Joining Date</label>
+                            <input id="joining" :value="fields.joining_date" data-provide="datepicker" data-date-autoclose="true" class="form-control" placeholder="Joining Date" required>
+                            <span class="text-danger">{{e.joining_date}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label>Phone</label>
+                            <input v-model="fields.phone" type="text" class="form-control" placeholder="like +97123456789" required>
+                            <span class="text-danger">{{e.phone}}</span>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <div class="form-group">
+                            <label>Address</label>
+                            <input v-model="fields.address" type="text" class="form-control" placeholder="Address" required>
+                            <span class="text-danger">{{e.address}}</span>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <b> Select subjects for this teacher: </b>
+                        <span class="text-danger">{{e.subjects}}</span>
+                    </div>
+                    <div class="col-sm-12 mt-20">
+                        <table class="table table-sm table-borderless">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th>Class</th>
+                                    <th>Subjects</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="c in items">
+                                    <td>
+                                        <div class="custom-control custom-checkbox">
+                                            <input v-on:change="onChangeClass($event, c)" type="checkbox" class="custom-control-input" v-bind:id="c.class_name+c.class_id">
+                                            <label class="custom-control-label" v-bind:for="c.class_name+c.class_id">{{c.class_name}}</label>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div v-for="subject in c.subjects" class="custom-control custom-checkbox">
+                                            <input v-on:Change="onChangeSubject($event, c, subject)" type="checkbox" class="custom-control-input" v-bind:id="subject.subject_name + subject.subject_id" v-bind:value="subject.subject_id" v-model="fields.subjects">
+                                            <label class="custom-control-label" v-bind:for=" subject.subject_name + subject.subject_id">{{subject.subject_name}}</label>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-sm-12">
+                    <div class="form-group mt-2 mb-3">
+                        <input type="file" class="dropify">
+                        <small id="fileHelp" class="form-text text-muted">This is some placeholder block-level help text for the above input. It's a bit lighter and easily wraps to a new line.</small>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 mt-40">
+                    <button type="submit" class="btn btn-primary" id="post">Submit</button>
+                    <a href="@Url.Action("index")" class="btn btn-outline-secondary">Cancel</a>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,132 @@
+﻿@section Scripts
+{
+    <!-- Start Main project js, jQuery, Bootstrap -->
+    <script src="~/Core/content/bundles/lib.vendor.bundle.js"></script>
+
+    <!-- Start Plugin Js -->
+    <script src="~/Core/content/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/Core/content/plugins/dropify/js/dropify.min.js"></script>
+    <script src="~/Core/content/bundles/summernote.bundle.js"></script>
+
+    <!-- Start project main js  and page js -->
+    <script src="~/Core/content/js/core.js"></script>
+    <script src="~/Core/assets/js/form/dropify.js"></script>
+    <script src="~/Core/assets/js/page/summernote.js"></script>
+
+    <script>
+        values = @Html.Raw(Json.Encode(ViewBag.List));
+        genders = @Html.Raw(Json.Encode(ViewBag.Gender));
+        classes = @Html.Raw(Json.Encode(ViewBag.Classes));
+
+    </script>
+    <script src="~/assets/js/teacher/index.js"></script>
+
+}
+@section Styles
+{
+    <!-- Bootstrap core and vandor -->
+    <link rel="stylesheet" href="~/Core/content/plugins/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/Core/content/plugins/bootstrap-datepicker/css/bootstrap-datepicker3.min.css">
+    <link rel="stylesheet" href="~/core/content/plugins/dropify/css/dropify.min.css">
+    <link rel="stylesheet" href="~/Core/content/plugins/summernote/dist/summernote.css" />
+
+    <!-- core css -->
+    <link href="~/Core/content/css/style.min.css" rel="stylesheet" />
+}
+
+<!-- Start Page title and tab -->
+<div class="section-body">
+    <div class="container-fluid">
+        <div class="d-flex justify-content-between align-items-center ">
+            <div class="header-action">
+                <h1 class="page-title">@ViewBag.Title</h1>
+                <ol class="breadcrumb page-breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">@ViewBag.Logo</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">@ViewBag.Title</li>
+                </ol>
+                <a href="@Url.Action("create")" class="btn btn-primary mt-10">Create new teacher</a>
+            </div>
+            <ul class="nav nav-tabs page-header-tab">
+                <li class="nav-item"><a class="nav-link active" data-toggle="tab" href="#pro-all">List View</a></li>
+                <li class="nav-item"><a class="nav-link" data-toggle="tab" href="#pro-grid">Grid View</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="section-body mt-4">
+    <div class="container-fluid">
+        <div class="tab-content">
+            <div class="tab-pane active" id="pro-all">
+                <div class="table-responsive">
+                    <table class="table table-hover table-vcenter table_custom text-nowrap spacing5 border-style mb-0">
+                        <tbody>
+                            <tr v-for="(item,index) in list">
+                                <td class="w60">
+                                    <div v-if="item.profile_image === ''" v-bind:class="getAvaterColor(index)" class="avatar" data-toggle="tooltip" data-placement="top" title="" data-original-title="Avatar Name">
+                                        <span>{{first_letter(item.first_name, item.last_name)}}</span>
+                                    </div>
+                                    <img v-else class="card-profile-img" src="~/core/content/images/sm/avatar1.jpg" alt="">
+                                </td>
+                                <td><div class="font-15">{{fullName(item.first_name, item.last_name)}}</div></td>
+                                <td><span>{{item.phone}}</span></td>
+                                <td><span class="text-muted">{{item.gender.gender_name}}</span></td>
+                                <td>{{item.address}}</td>
+                                <td><strong>{{item.date_of_birth}}</strong></td>
+                                <td><span class="tag tag-success">Teacher</span></td>
+                                <td>
+                                    <button type="button" v-on:click="location.href='@Url.Action("details")/' + item.user_id" class="btn btn-icon btn-sm" title="View"><i class="fa fa-eye"></i></button>
+                                    <button type="button" v-on:click="location.href='@Url.Action("edit")/' + item.user_id" class="btn btn-icon btn-sm" title="Edit"><i class="fa fa-edit"></i></button>
+                                    <button type="button" class="btn btn-icon btn-sm js-sweetalert" title="Delete" v-on:click="onDelete(index)"><i class="fa fa-trash-o text-danger"></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <!--Modal Delete-->
+                <div id="md-delete" class="modal fade" tabindex="-1" role="dialog">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title txt-warning">Warning!</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p>Do you want delete {{full_name}}</p>
+                            </div>
+                            <div class="modal-footer">
+                                @using (Html.BeginForm("Delete", "Teacher", FormMethod.Post))
+                                {
+                                    <input type="text" name="id" hidden :value="user_id" />
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="pro-grid">
+                <div class="row" id="gird">
+                    <div class="col-xl-3 col-lg-4 col-md-6" v-for="item in list">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <img class="card-profile-img" src="~/core/content/images/sm/avatar1.jpg" alt="">
+                                <h5 class="mb-0">{{item.first_name, item.last_name}}</h5>
+                                <span>{{item.gender.gender_name}}</span>
+                                <div class="text-muted">{{item.phone}}</div>
+                                <p class="mb-4 mt-3">{{item.address}}</p>
+                                <a :href="'@Url.Action("details")/' + item.user_id" class="btn btn-primary btn-sm">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+
+

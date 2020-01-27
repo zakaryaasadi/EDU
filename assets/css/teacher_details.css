@@ -1,0 +1,191 @@
+﻿.height-auto {
+    height: auto !important;
+}
+
+.heading-layout1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: transparent;
+    border: none;
+    margin-bottom: 12px;
+}
+
+    .heading-layout1 .item-title h3 {
+        color: #111111;
+        font-weight: 500;
+        margin-bottom: 0;
+    }
+
+.single-info-details {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+@media only screen and (max-width: 1199px) {
+    .single-info-details {
+        display: block;
+    }
+}
+
+.single-info-details .item-img {
+    margin-right: 40px;
+}
+
+@media only screen and (max-width: 1199px) {
+    .single-info-details .item-img {
+        margin: 0 0 40px 0;
+        text-align: center;
+    }
+}
+
+.single-info-details .item-content {
+    flex: 1;
+}
+
+@media only screen and (max-width: 575px) {
+    .single-info-details .item-content .item-header {
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 575px) {
+    .single-info-details .item-content .item-header .header-elements {
+        margin-bottom: 15px;
+    }
+}
+
+.single-info-details .item-content .item-header .header-elements ul li {
+    display: inline-block;
+    margin-right: 5px;
+}
+
+    .single-info-details .item-content .item-header .header-elements ul li:last-child {
+        margin-right: 0;
+    }
+
+    .single-info-details .item-content .item-header .header-elements ul li a {
+        display: block;
+        background-color: #f0f1f3;
+        border-radius: 4px;
+        color: #646464;
+        font-size: 14px;
+        padding: 7px 12px;
+        -webkit-transition: all 0.3s ease-out;
+        -moz-transition: all 0.3s ease-out;
+        -ms-transition: all 0.3s ease-out;
+        -o-transition: all 0.3s ease-out;
+        transition: all 0.3s ease-out;
+    }
+
+        .single-info-details .item-content .item-header .header-elements ul li a:hover {
+            background-color: #ff9d01;
+            color: #fff;
+        }
+
+.single-info-details .item-content p {
+    width: 50%;
+}
+
+@media only screen and (max-width: 1499px) {
+    .single-info-details .item-content p {
+        width: 80%;
+    }
+}
+
+@media only screen and (max-width: 1199px) {
+    .single-info-details .item-content p {
+        width: 100%;
+    }
+}
+
+.single-info-details .item-content .info-table .table {
+    width: 50%;
+}
+
+@media only screen and (max-width: 1499px) {
+    .single-info-details .item-content .info-table .table {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    .single-info-details .item-content .info-table .table {
+        width: 100%;
+    }
+}
+
+.single-info-details .item-content .info-table .table tr td {
+    border: none;
+    padding: 10px;
+}
+
+.new-added-form .form-group {
+    position: relative;
+    margin-bottom: 2.3rem;
+}
+
+    .new-added-form .form-group:last-child {
+        margin-bottom: 0;
+    }
+
+    .new-added-form .form-group label {
+        margin-bottom: 12px;
+        display: block;
+    }
+
+    .new-added-form .form-group .form-control {
+        background-color: #f0f1f3;
+        height: 50px;
+    }
+
+    .new-added-form .form-group i {
+        position: absolute;
+        top: 56px;
+        right: 34px;
+        font-size: 15px;
+        color: #000;
+    }
+
+    .new-added-form .form-group .textarea {
+        height: auto;
+    }
+
+    .new-added-form .form-group .form-control-file {
+        display: inline-block;
+        width: auto;
+    }
+
+        .new-added-form .form-group .form-control-file:focus {
+            outline: none;
+        }
+
+    .new-added-form .form-group .btn-fill-lg {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+
+        .new-added-form .form-group .btn-fill-lg:last-child {
+            margin-right: 0;
+            margin-bottom: 0;
+        }
+
+.header-inline {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+}
+
+.text-dark-medium {
+    color: #111111;
+}
+
+.font-medium {
+    font-weight: 500;
+}

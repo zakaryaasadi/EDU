@@ -1,0 +1,116 @@
+﻿@-webkit-keyframes vib {
+    0% {
+        top: 0px;
+        left: 0px;
+    }
+
+    10% {
+        top: 0px;
+        left: -10px;
+    }
+
+    20% {
+        top: 0px;
+        left: 0px;
+    }
+
+    30% {
+        top: 0;
+        left: -10px;
+    }
+
+    40% {
+        top: 0px;
+        left: 0px;
+    }
+    50% {
+        top: 0;
+        left: -10px;
+    }
+    60% {
+        top: 0;
+        left: 0px;
+    }
+    70% {
+        top: 0;
+        left: -10px;
+    }
+    80% {
+        top: 0;
+        left: 0px;
+    }
+    90% {
+        top: 0;
+        left: -10px;
+    }
+    100% {
+        top: 0;
+        left: 0px;
+    }
+}
+
+/* Standard syntax */
+@keyframes vib {
+    0% {
+        top: 0px;
+        left: 0px;
+    }
+
+    10% {
+        top: 0px;
+        left: -10px;
+    }
+
+    20% {
+        top: 0px;
+        left: 0px;
+    }
+
+    30% {
+        top: 0;
+        left: -10px;
+    }
+
+    40% {
+        top: 0px;
+        left: 0px;
+    }
+
+    50% {
+        top: 0;
+        left: -10px;
+    }
+
+    60% {
+        top: 0;
+        left: 0px;
+    }
+
+    70% {
+        top: 0;
+        left: -10px;
+    }
+
+    80% {
+        top: 0;
+        left: 0px;
+    }
+
+    90% {
+        top: 0;
+        left: -10px;
+    }
+
+    100% {
+        top: 0;
+        left: 0px;
+    }
+}
+
+.vibration {
+    position: relative;
+    -webkit-animation-name: vib; /* Safari 4.0 - 8.0 */
+    -webkit-animation-duration: 1s; /* Safari 4.0 - 8.0 */
+    animation-name: vib;
+    animation-duration: 1s;
+}
